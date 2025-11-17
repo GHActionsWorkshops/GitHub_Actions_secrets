@@ -25,7 +25,7 @@ jobs:
       matrix: ${{ fromJson(inputs.matrix) }}
     runs-on: ${{ matrix.os }}
     steps:
-      - name: Log inputs version: ${{matrix.version}} for: ${{ matrix.os }}
+      - name: Log inputs version ${{matrix.version}} for: ${{ matrix.os }}
         run: |
           echo "Log level: $LEVEL"
           echo "Tags: $TAGS"
