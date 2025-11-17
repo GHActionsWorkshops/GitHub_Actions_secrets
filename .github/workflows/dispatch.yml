@@ -14,6 +14,9 @@ on:
       environment:
         description: 'environment'
         type: environment
+      tags:
+        description: 'tags'
+        type: string
       matrix:
         type: string
         required: true
