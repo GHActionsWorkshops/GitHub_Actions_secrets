@@ -14,11 +14,18 @@ on:
       environment:
         description: 'environment'
         type: environment
+      matrix:
+        description: 'tags'
+        type: string
+        required: true
 
 
 jobs:
   log-the-inputs:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        tags: ${{ fromJson(inputs.matrix) }}
     steps:
       - name: Log inputs
         run: |
@@ -27,5 +34,5 @@ jobs:
           echo "Environment: $ENVIRONMENT"
         env:
           LEVEL: ${{ inputs.logLevel }}
-          TAGS: ${{ inputs.tags }}
+          TAGS: ${{ matrix.tags }}
           ENVIRONMENT: ${{ inputs.environment }}
