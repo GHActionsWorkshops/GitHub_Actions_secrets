@@ -5,6 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
+      - name: Checkout
+        uses: actions/checkout@v5
       - name: Hello world action step
         id: hello
         uses: ./hello-world-docker-action
@@ -13,3 +15,8 @@ jobs:
 
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: workspace_artifacts
+          path: ${{ github.workspace }} 
