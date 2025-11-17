@@ -14,7 +14,7 @@ jobs:
       - name: Set color
         id: color-selector
         run: |
-          echo "color=blue" >> $GITHUB_ENV
+          echo "color=blue" >> "$GITHUB_OUTPUT"
       - name: Get color
         env: 
           color: ${{ steps.color-selector.outputs.color }}
@@ -26,7 +26,7 @@ jobs:
       - name: Make a sentence
         id: sentence_maker
         run: |
-            echo "sentence='this is a sentence'" >> $GITHUB_ENV
+            echo "sentence='this is a sentence'" >> "$GITHUB_OUTPUT"
     outputs:
       SENTENCE: ${{ steps.sentence_maker.outputs.sentence }}
 
