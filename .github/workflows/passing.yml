@@ -16,7 +16,8 @@ jobs:
         run: |
           echo "color=blue" >> $GITHUB_ENV
       - name: Get color
-        env: color: ${{ steps.color-selector.outputs.color }}
+        env: 
+          color: ${{ steps.color-selector.outputs.color }}
         run: echo "The selected color is $color"
         
   producer:
