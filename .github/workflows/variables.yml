@@ -10,6 +10,7 @@ jobs:
       JOB_VAR: "I am a job variable"
     name: ${{ vars.ENVIRONMENT_VAR }}
     runs-on: ubuntu-latest
+    environment: test
     steps:
     - name: Use variables 1
       env: 
@@ -36,6 +37,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Use variables in display-variables2
+      env: 
+        STEP_VAR: "I am a step variable"
       run: |
         echo "Should be variable in workflow scope:$WORKFLOW_VAR"
         echo "Should NOT be variable in job scope:$JOB_VAR"
